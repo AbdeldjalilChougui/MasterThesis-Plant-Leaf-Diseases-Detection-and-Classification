@@ -1,0 +1,207 @@
+\let\textcircled=\pgftextcircled
+\chapter{THREE}
+\label{chap:intro}
+\section{Introduction}...............................
+\section{Dataset description}
+\label{Dataset description}
+In this project we have used two datasets: 
+\subsection{plantvillage} is a general dataset and contains several types of plant leaves,in this data-set, 39 different classes of plant leaf and background images are available. The data-set containing 61,486 images
+of 14 different plants (infected by different diseases). We split
+the dataset into training set with 43,444 images (80\%) and
+validation set with 10,861 images (20\%)
+\begin{table}[]
+\begin{tabular}{@{}|p{10cm}|p{3cm}|@{}}
+\hline
+ \centering \textbf{Class name} & \textbf{Images}  \\ \hline
+ 1. Apple Scab, Venturia inaequalis & 630 \\ 
+ 2. Apple Black Rot, Botryosphaeria obtusa & 621  \\ 
+ 3. Apple Cedar Rust, Gymnosporangium juniperivirginianae & 275 \\
+ 4. Apple healthy & 1645 \\
+ 5. Blueberry healthy &  1502 \\
+ 6. Cherry healthy & 854 \\
+ 7. Cherry Powdery Mildew, Podoshaera clandestine & 1052 \\
+ 8. Corn Grey Leaf Spot, Cercospora zeae-maydis & 513 \\
+ 9. Corn Common Rust, Puccinia sorghi & 1192 \\
+ 10. Corn healthy & 1162 \\
+ 11. Corn Northern Leaf Blight, Exserohilum turcicum & 985 \\
+ 12. Grape Black Rot, Guignardia bidwellii & 1180\\
+ 13. Grape Black Measles (Esca), Phaeomoniella aleophilum,
+ Phaeomoniella chlamydospora & 1383 \\
+ 14. Grape Healthy 423
+15. Grape Leaf Blight, Pseudocercospora vitis & 1076 \\
+16. Orange Huanglongbing (Citrus Greening), Candidatus
+Liberibacter spp. & 5507 \\
+17. Peach Bacterial Spot, Xanthomonas campestris & 2297 \\
+18. Peach healthy & 360 \\
+19. Bell Pepper Bacterial Spot, Xanthomonas campestris & 997 \\
+20. Bell Pepper healthy & 1478 \\
+21. Potato Early Blight, Alternaria solani & 1000 \\
+22. Potato healthy & 152 \\
+23. Potato Late Blight, Phytophthora infestans & 1000 \\
+24. Raspberry healthy & 371 \\
+25. Soybean healthy & 5090 \\
+26. Squash Powdery Mildew, Erysiphe cichoracearum & 1835 \\
+27. Strawberry Healthy & 456 \\
+28. Strawberry Leaf Scorch, Diplocarpon earlianum & 1109 \\
+29. Tomato Bacterial Spot, Xanthomonas campestris pv. vesicatoria & 2127 \\
+30. Tomato Early Blight, Alternaria solani & 1000 \\
+31. Tomato Late Blight, Phytophthora infestans & 1591 \\
+32. Tomato Leaf Mold , Passalora fulva & 1909 \\
+33. Tomato Septoria Leaf Spot, Septoria lycopersici & 952 \\
+34. Tomato Two Spotted Spider Mite, Tetranychus urticae & 1771 \\
+35. Tomato Target Spot, Corynespora cassiicola & 1676 \\
+36. Tomato Mosaic Virus & 1404 \\
+37. Tomato Yellow Leaf Curl Virus & 373 \\
+38. Tomato healthy & 5375 \\
+ \hline
+ \centering \textbf{Total} & 54323 \\ \hline
+\end{tabular}
+\caption{PlantVillage dataset details}
+\end{table}
+\subsection{Tomato} is a specific dataset about tomato found it in the famous website kaggle \cite{w1} 
+The dataset consists of over 10,000 tomato leaves images, is organized into
+2 folders (train with 10000 images and 1000 images for validation) and contains subfolders for each diseases category (9 types of diseases and one healthy) there are : \textbf{Bacterial spot} ,\textbf{Early blight},
+\textbf{Late blight},\textbf{Leaf Mold},
+\textbf{Septoria leaf spot},\textbf{Spider mites},
+\textbf{Target Spot},\textbf{mosaic virus},\textbf{Yellow Leaf Curl Virus},\textbf{healthy} , The original size of the images is 256x256, our dataset is already augmented using techniques like rotation, flip and Brightness that's helped to get more number of parameters to learn almost all the features from the data.
+
+\begin{table}[]
+\begin{tabular}{@{}|p{9cm}|p{3cm}|p{3cm}|@{}}
+\hline
+ \centering \textbf{Class name} & \textbf{Train Images} & \textbf{valid Images}  \\ \hline
+ 1. Bacterial spot & 1000 & 100 \\
+ 2. Early blight & 1000 & 100 \\
+ 3. Late blight & 1000 & 100 \\ 
+ 4. Leaf Mold & 1000 & 100\\
+ 5. Septoria leaf spot & 1000 & 100\\
+ 6. Spider mites & 1000 & 100\\
+ 7. Target Spot & 1000 & 100\\
+ 8. mosaic virus & 1000 & 100\\
+ 9. Yellow Leaf Curl Virus & 1000 & 100\\
+10. Healthy & 1000 & 100 \\
+
+ \hline
+ \centering \textbf{Total} & 10000 & 1000\\ \hline
+\end{tabular}
+\caption{Tomato dataset details}
+\end{table}
+
+\section{Preprocessing}
+The resulting dataset contains plant leaf images with dif-
+ferent shapes and resolutions. In order to normalize the input
+dataset and ensure consistency across all dataset, we reshaped
+all images with a fixed size of 256×256 pixels.
+\section{Data Augmentation}
+After collecting the dataset, we used augmentation tech-
+niques to increase the size of the dataset and include more
+variations. For this purpose, the images on our datasets were
+rotated, zoomed, and horizontally flipped, making the dataset
+larger and diverse.
+\section{Implementation frameworks and tools}
+\subsection{Python}
+Python is a programming language used in machine learning and data science
+and other sectors of activity created by Guido van Rossum, is an open source, cross-platform, object-oriented programming language. Thanks to specialized libraries, Python is used for many situations such as software development, data analysis, or infrastructure management. It is an interpreted programming language, Python allows the execution of code on any computer. Usable by both beginner and expert programmers, Python allows you to create programs in a quick and easy way.\cite{w2}
+\subsection{Tensorflow}
+An open source machine learning library for research and production developed by
+Google brain team , with Python and C++ programming languages as backend,Tensorflow use various optimization techniques to make the calculation of mathematical
+easier and faster and more efficient and automatically computing their derivation,Its flexible architecture allows development on several varieties of platforms (CPU, GPU, TPU). \cite{w3}
+\subsection{Keras}
+Keras is a deep learning API written in Python, running on top of the machine learning platform TensorFlow. It was developed with a focus on enabling fast experimentation.\cite{w4} \\
+keras is :
+\begin{itemize}
+    \item \textbf{Simple} : Keras reduces developer cognitive load to free you to focus on the parts of the problem that really matter.
+    \item \textbf{Flexible }: Keras adopts the principle of progressive disclosure of complexity: simple workflows should be quick and easy, while arbitrarily advanced workflows should be possible via a clear path that builds upon what you've already learned.
+    \item \textbf{Powerful }:Keras provides industry-strength performance and scalability: it is used by organizations and companies including NASA, YouTube, or Waymo. \cite{w4}
+
+\end{itemize}
+\subsection{PyTorch}
+PyTorch is an open source machine learning framework based on the Torch library, used for applications such as computer vision and natural language.
+The open-source software was developed by the artificial intelligence teams at Facebook Inc. in 2016. PyTorch offers two significant features including tensor computation, as well as functional deep neural networks. [deepAi.com]
+
+\subsection{Matplotlib}
+Matplotlib is a comprehensive library for creating static, animated, and interactive visualizations in Python. 
+It can be combined with scientific python libraries like numpy also
+It can export matrix formats (PNG, JPEG) and vector formats (PDF,
+SVG). \cite{w5} 
+this library can:
+\begin{itemize}
+    \item Create publication quality plots.
+    \item Make interactive figures that can zoom, pan, update.
+    \item Customize visual style and layout. \cite{w5}
+\end{itemize}
+\subsection{Google Colab}
+Colab is a free Jupyter notebook environment that runs entirely in the cloud with free GPU and TPU with a limit of 12 hours
+per session and 12 GB of RAM limits. Most importantly, it does not require a setup and the notebooks that you create can be simultaneously edited by your team members.\cite{w6}  \\
+Google Collab allows us to:
+\begin{enumerate}
+    \item Write and execute code in Python
+    \item Create/Upload/Share notebooks
+    \item Import/Save notebooks from/to Google Drive
+    \item Import/Publish notebooks from GitHub
+    \item Import external datasets e.g. from Kaggle
+    \item Integrate PyTorch, TensorFlow, Keras, OpenCV
+\end{enumerate}
+\subsubsection{Google Colab Pro}
+\label{Google Colab Pro}
+ Google Colab Pro offers a multitude of improvements, such as enabling a faster online GPU, a P100 or T4 GPU. The standard Colab comes with a slower, K80 GPU. The Pro subscription also allows users to work with more memory provided by a larger RAM, and train their models for a longer period of time,is approximately 40\% faster than the standard Google Colab environment.\cite{w8}
+\subsection{kaggle}
+Kaggle is an online community platform for data scientists and machine learning enthusiasts. Kaggle allows users to collaborate with other users, find and publish datasets, use GPU integrated notebooks, and compete with other data scientists to solve data science challenges.
+Kaggle provides powerful resources on cloud and allows you to use a maximum of 30 hours of GPU and 20 hours of TPU per week. 
+\subsection{Hugging Face}
+Hugging Face is a community and data science platform that provides: \begin{itemize}
+    \item Tools that enable users to build, train and deploy ML models based on open source (OS) code and technologies.
+    \item A place where a broad community of data scientists, researchers, and ML engineers can come together and share ideas, get support and contribute to open source projects.
+\end{itemize}
+Transformers of huggingFace provides APIs to easily download and train state-of-the-art pretrained models. Using pretrained models can reduce your compute costs and save you time from training a model from scratch. The models can be used across different modalities such as: Text,Audio and our case Images: image classification, object detection, and segmentation.
+
+This library supports seamless integration between three of the most popular deep learning libraries: PyTorch, TensorFlow and Train your model in three lines of code in one framework, and load it for inference with another. \cite{w11}
+
+\subsection{Roboflow}
+Roboflow is a Computer Vision developer framework for better data collection to preprocessing, and model training techniques. Roboflow has public datasets readily available to users and has access for users to upload their own custom data also. Roboflow accepts various annotation formats.
+Roboflow makes managing, preprocessing, augmenting, and versioning datasets for computer vision seamless.
+Developers reduce 50\% of their code when using Roboflow's workflow, automate annotation quality assurance, save training time, and increase model reproducibility.\cite{w12}
+\subsubsection{PlantDoc}
+PlantDoc is a dataset of 2,569 images with size of 416 X 416 across 13 plant species and 30 classes (diseased and healthy) for image classification and object detection. There are 8,851 labels. we use it in detection while we work with algorithm YOLOv5 in our project. \cite{w12}
+
+\section{Model Evaluation Metrics}
+This section discusses how we can evaluate our model results, what makes a model better than
+another, and how we can assure that our model will give good results in the testing phase.
+
+\subsection{Accuracy}
+In order to know how the model is accurate, we need to mention accuracy which is an important
+evaluation metric and the most intuitive performance measure, it is simply a ratio of correctly
+predicted observations to the total observations.\\
+\textbf{\[Accuracy =\frac{TP+TN}{TP+FP+FN+TN}\]}
+
+\subsection{Precision   }
+Precision is the ratio of correctly predicted positive observations to the total predicted positive observations.\\
+\textbf{\[Precision =\frac{TP}{TP+FP}\]}
+
+
+\subsection{Recall   } Named also Sensitivity, Recall is the ratio of correctly predicted positive observations to the all observations in actual class, in other way, recall measures the proportion of actual positives that are correctly identified [11].
+\textbf{\[Recall =\frac{TP}{TP+FN}\]}
+% 
+\subsection{F1-score   }  F1 score can be interpreted as a weighted average of the precision and recall, where an F1 score reaches its best value at 1 and worst score at 0.  \\
+
+Therefore, this score takes both false positives and false negatives into account. Intuitively it is not as easy to understand as accuracy, but F1 is usually more useful than accuracy, especially if we have an uneven class distribution. Accuracy works best if false positives and false negatives have similar costs.\\
+
+If the cost of false positives and false negatives are very different, it's better to look at both Precision and Recall.F1 Score single metric that combines recall and precision using the harmonic mean \cite{w9}. \\
+
+\textbf{\[F1-score = 2 X  \frac{ Recall X Precision}{Recall + Precision}\]}
+
+\begin{itemize}
+    \item \textbf{True Positive (TP) :} Number of normal data classified correctly as normal.
+	\item \textbf{False Positive (FP) :} Number of abnormal data incorrectly  classified as normal.
+	\item \textbf{True Negative (TN) :} Number of abnormal data classified correctly as abnormal .
+	\item \textbf{False Negative (FN):} Number of normal data incorrectly classified as abnormal.
+\end{itemize} 
+
+\subsection{Confusion matrix}
+A confusion matrix is a technique for summarizing the performance of a classification
+algorithm. Classification accuracy alone can be misleading if you have an unequal
+number of observations in each class or if you have more than two classes in your dataset.
+Calculating a confusion matrix can give you a better idea of what your classification
+model is getting right and what types of errors it is making. The confusion matrix shows
+the ways in which your classification model is confused when it makes predictions.\cite{w7}
+
+
